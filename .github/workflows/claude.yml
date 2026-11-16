@@ -22,3 +22,6 @@ jobs:
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # House rule: every pull request description answers the 3 questions
+          claude_args: |
+            --append-system-prompt "Whenever you open a pull request or write a pull request description, follow the template in .github/pull_request_template.md and answer three sections in plain English: 1) What changes? - 1 to 3 short, clear sentences. 2) Why? - context and motivation, and link the related issue if there is one (for example Closes #12). 3) How to test it? - concrete, numbered steps a reviewer can follow to check the change."
